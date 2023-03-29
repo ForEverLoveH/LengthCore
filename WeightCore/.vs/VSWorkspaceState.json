@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WeightCore",
+    "\\WeightCore\\GameSystem",
+    "\\WeightCore\\GameSystem\\GameWindowSys"
+  ],
+  "SelectedNode": "\\WeightCore\\GameSystem\\GameWindowSys\\PlatFormSettingWindowSys.cs",
+  "PreviewInSolutionExplorer": false
+}

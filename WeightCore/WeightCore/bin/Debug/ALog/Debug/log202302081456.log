@@ -1,0 +1,17 @@
+
+
+Date：2023-02-08 14:56:29.182
+LogLevel：Debug
+Message： 
+****************************异常文本****************************
+【出现时间】：2023/2/8 14:56:29
+【异常类型】：ArgumentOutOfRangeException
+【异常信息】：InvalidArgument=“9”的值对于“index”无效。
+参数名: index
+【堆栈调用】：   在 System.Windows.Forms.ListViewItem.ListViewSubItemCollection.get_Item(Int32 index)
+   在 WeightCore.GameSystem.GameHelper.ListViewHelper.AutoResizeColumWidths(ListView listView) 位置 D:\WorkProject\WeightCore\WeightCore\GameSystem\GameHelper\ListViewHelper.cs:行号 25
+   在 WeightCore.GameSystem.GameWindowSys.MainWindowSys.UpdataGroupDataView(String createTime, String schoolName, String groupName, ListView listView1) 位置 D:\WorkProject\WeightCore\WeightCore\GameSystem\GameWindowSys\MainWindowSys.cs:行号 158
+【异常方法】：ListViewSubItem get_Item(Int32)
+***************************************************************
+
+--------------------------------------------------

@@ -1,0 +1,12 @@
+
+
+Date：2023-02-15 14:45:56.754
+LogLevel：Information
+Message：
+
+{"ExamId":"17","MachineCode":"9c1d56c8aa70721a9f005d4f4f5c51f4e50cc9aa967eaa915c91cc63d0f9777c","AdminUserName":"Admin","TestManUserName":"TestMan","TestManPassword":"e0785383aac73bad3235d5f8b7fd0c4a","Sudents":[{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"梁健熙","IdNumber":"106010007","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-15 14:45:18","Result":162.0,"GroupNo":"20230215_1_106010007_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]},{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"王浩天","IdNumber":"106010021","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-15 14:45:49","Result":162.1,"GroupNo":"20230215_1_106010021_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]}]}
+
+
+{"ExamId":"17","MachineCode":"6bf1a0f01c1a97f4f597532f99100888955eac22817add74157a58317cb8ea71","AdminUserName":"Admin","TestManUserName":"TestMan","TestManPassword":"e0785383aac73bad3235d5f8b7fd0c4a","Sudents":[{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"梁健熙","IdNumber":"106010007","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-15 14:45:18","Result":61.7,"GroupNo":"20230215_1_106010007_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]},{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"王浩天","IdNumber":"106010021","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-15 14:45:49","Result":61.5,"GroupNo":"20230215_1_106010021_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]}]}
+
+--------------------------------------------------

@@ -1,0 +1,9 @@
+
+
+Date：2023-02-25 17:12:30.438
+LogLevel：Information
+Message：
+
+{"ExamId":"17","MachineCode":"9c1d56c8aa70721a9f005d4f4f5c51f4e50cc9aa967eaa915c91cc63d0f9777c","AdminUserName":"Admin","TestManUserName":"TestMan","TestManPassword":"e0785383aac73bad3235d5f8b7fd0c4a","Sudents":[{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"梁健熙","IdNumber":"106010007","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-18 16:52:10","Result":161.6,"GroupNo":"20230218_1_106010007_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]},{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"王浩天","IdNumber":"106010021","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-15 14:45:49","Result":162.1,"GroupNo":"20230215_1_106010021_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]},{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"谭梓豪","IdNumber":"106010026","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-15 14:51:18","Result":161.3,"GroupNo":"20230215_1_106010026_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]},{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"黄想","IdNumber":"106010039","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-18 16:49:33","Result":160.4,"GroupNo":"20230218_1_106010039_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]},{"SchoolName":"培林小学秋学期体测","GradeName":"小学一年级","ClassNumber":"一年级一班","Name":"周品澜","IdNumber":"106010041","Rounds":[{"RoundId":1,"State":"已测试","Time":"2023-02-18 16:49:53","Result":162.1,"GroupNo":"20230218_1_106010041_1","Ip":"BFEBFBFF000806D1","Memo":"","Text":{},"Images":{},"Videos":{}}]}]}
+
+--------------------------------------------------

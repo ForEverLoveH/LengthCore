@@ -1,0 +1,34 @@
+
+
+Date：2023-02-14 15:27:25.823
+LogLevel：Debug
+Message： 
+****************************异常文本****************************
+【出现时间】：2023/2/14 15:27:25
+【异常类型】：ArgumentOutOfRangeException
+【异常信息】：InvalidArgument=“0”的值对于“SelectedIndex”无效。
+参数名: SelectedIndex
+【堆栈调用】：   在 System.Windows.Forms.ComboBox.set_SelectedIndex(Int32 value)
+   在 WeightCore.GameSystem.MyControl.UserControl1.set_p_stateCbx_selectIndex(Int32 value) 位置 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCore\GameSystem\MyControl\UserControl1.cs:行号 182
+   在 WeightCore.GameSystem.GameWindowSys.RunningTestingWindowSys.ClearMatchStudent(List`1 userControl1s) 位置 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCore\GameSystem\GameWindowSys\RunningTestingWindowSys.cs:行号 372
+   在 WeightCore.GameSystem.GameWindow.RunningTestingWindow.AutoMatchStudent() 位置 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCore\GameSystem\GameWindow\RunningTestingWindow.cs:行号 481
+【异常方法】：Void set_SelectedIndex(Int32)
+***************************************************************
+
+--------------------------------------------------
+
+Date：2023-02-14 15:27:35.318
+LogLevel：Debug
+Message： 
+****************************异常文本****************************
+【出现时间】：2023/2/14 15:27:35
+【异常类型】：ArgumentOutOfRangeException
+【异常信息】：索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+【堆栈调用】：   在 System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   在 System.Collections.Generic.List`1.get_Item(Int32 index)
+   在 WeightCore.GameSystem.GameWindow.RunningTestingWindow.AnalyData(SerialMsg data) 位置 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCore\GameSystem\GameWindow\RunningTestingWindow.cs:行号 181
+【异常方法】：Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+***************************************************************
+
+--------------------------------------------------

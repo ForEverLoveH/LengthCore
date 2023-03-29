@@ -1,0 +1,27 @@
+
+
+Date：2023-02-14 14:22:04.007
+LogLevel：Debug
+Message： 
+****************************异常文本****************************
+【出现时间】：2023/2/14 14:22:04
+【异常类型】：JsonReaderException
+【异常信息】：Input string '163.6' is not a valid integer. Path 'sg_result', line 1, position 68.
+【堆栈调用】：   在 Newtonsoft.Json.JsonTextReader.ParseReadNumber(ReadType readType, Char firstChar, Int32 initialPosition)
+   在 Newtonsoft.Json.JsonTextReader.ParseNumber(ReadType readType)
+   在 Newtonsoft.Json.JsonTextReader.ReadNumberValue(ReadType readType)
+   在 Newtonsoft.Json.JsonTextReader.ReadAsInt32()
+   在 Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   在 WeightCore.GameSystem.GameHelper.SerialReaderHelper.RunReceiveDataCallback(Byte[] btAryBuffer) 位置 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCore\GameSystem\GameHelper\SerialReaderHelper.cs:行号 235
+【异常方法】：Void ParseReadNumber(Newtonsoft.Json.ReadType, Char, Int32)
+***************************************************************
+
+--------------------------------------------------
