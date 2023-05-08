@@ -131,7 +131,19 @@ namespace WeightCore.GameSystem.GameWindowSys
                 return false;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="MachineCode"></param>
+        /// <param name="MachineCode1"></param>
+        /// <param name="ExamId"></param>
+        /// <param name="Platform"></param>
+        /// <param name="Platforms"></param>
+        /// <param name="comboBox1"></param>
+        /// <param name="comboBox2"></param>
+        /// <param name="comboBox3"></param>
+        /// <param name="comboBox4"></param>
+        /// <param name="localValues"></param>
         public void LoadingInitData(ref string MachineCode, ref string MachineCode1, ref string ExamId, ref string Platform, ref string Platforms, System.Windows.Forms.ComboBox comboBox1, ComboBox comboBox2, ComboBox comboBox3, ComboBox comboBox4, ref Dictionary<string, string> localValues)
         {
             List<LocalInfos> localInfos = freeSql.Select<LocalInfos>().ToList();

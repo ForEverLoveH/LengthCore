@@ -22,3 +22,15 @@ D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCo
 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.csproj.CopyComplete
 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.dll
 D:\WorkProject\C#Project\机器测试\身高体重\德育龙\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.pdb
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\WeightCoreModel.dll
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\WeightCoreModel.pdb
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\FreeSql.dll
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\MiniExcel.dll
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\FreeSql.pdb
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\FreeSql.xml
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\bin\Debug\zh-Hans\FreeSql.resources.dll
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.csproj.AssemblyReference.cache
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.csproj.CoreCompileInputs.cache
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.csproj.CopyComplete
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.dll
+D:\WorkProject\C#Project\机器测试\身高体重\德育龙\LengthCore\WeightCore\WeightCoreModel\obj\Debug\WeightCoreModel.pdb

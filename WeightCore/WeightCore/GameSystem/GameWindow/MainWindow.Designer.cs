@@ -232,7 +232,7 @@
             this.ucNavigationMenu1.Location = new System.Drawing.Point(3, 38);
             this.ucNavigationMenu1.Name = "ucNavigationMenu1";
             this.ucNavigationMenu1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.ucNavigationMenu1.Size = new System.Drawing.Size(1225, 61);
+            this.ucNavigationMenu1.Size = new System.Drawing.Size(1216, 61);
             this.ucNavigationMenu1.TabIndex = 0;
             this.ucNavigationMenu1.TipColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
             this.ucNavigationMenu1.ClickItemed += new System.EventHandler(this.ucNavigationMenu1_ClickItemed);
