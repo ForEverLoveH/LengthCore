@@ -112,7 +112,7 @@ namespace WeightCore.GameSystem.GameWindow
                         }
                         break;
                     case "启动测试":
-                        MainWindowSys.Instance.ShowRunningTestWindow();
+                        MainWindowSys.Instance.ShowRunningTestWindow(createTime,schoolName);
                       
                         break;
                 }

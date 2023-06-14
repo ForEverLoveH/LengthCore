@@ -293,7 +293,7 @@ namespace WeightCore.GameSystem.GameWindowSys
                     for (int i = 0; i < rows.Count; i++)
                     {
                         string[] examTime = rows[i].examTime.Split(' ');
-                        set.Add(rows[i].GradeName + "#" + examTime[0]);
+                        set.Add(rows[i].GroupName + "#" + examTime[0]);
                     }
                     List<string> rolesList = new List<string>();
                     rolesList.AddRange(set);

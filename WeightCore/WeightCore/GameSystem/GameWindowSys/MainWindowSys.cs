@@ -590,9 +590,9 @@ namespace WeightCore.GameSystem.GameWindowSys
             }
         }
 
-        public  void ShowRunningTestWindow()
+        public  void ShowRunningTestWindow(string createTime,string school)
         {
-             RunningTestingWindowSys.Instance.ShowRunningTestingWindow();
+             RunningTestingWindowSys.Instance.ShowRunningTestingWindow(createTime,school );
         }
     }
 }

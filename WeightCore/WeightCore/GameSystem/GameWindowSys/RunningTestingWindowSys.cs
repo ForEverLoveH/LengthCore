@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,9 +29,11 @@ namespace WeightCore.GameSystem.GameWindowSys
         {
             Instance = this;
         }
-        public void ShowRunningTestingWindow()
+        public void ShowRunningTestingWindow(string time,string school)
         {
             RunningTestWindow = new RunningTestWindow();
+            RunningTestWindow.CreateTime = time;
+            RunningTestWindow.School=school;
             RunningTestWindow.Show();
         }
         /// <summary>
@@ -156,7 +159,7 @@ namespace WeightCore.GameSystem.GameWindowSys
         /// </summary>
         /// <param name="groupCombox"></param>
         /// <param name="groupName"></param>
-        public void RefreshGetGroup(ComboBox groupCombox,string groupName="")
+      /*  public void RefreshGetGroup(ComboBox groupCombox,string groupName="")
         {
             try
             {
@@ -183,7 +186,7 @@ namespace WeightCore.GameSystem.GameWindowSys
                 LoggerHelper .Debug(exception);
                 return; 
             }
-        }
+        }*/
         /// <summary>
         /// 
         /// </summary>
@@ -697,19 +700,21 @@ namespace WeightCore.GameSystem.GameWindowSys
             listView1.Columns.AddRange(Header1);
         }
 
-        public void UpDataGroupData( ComboBox groupCombox,string groupname="")
+        public void UpDataGroupData( ComboBox groupCombox,string school,string createTime )
         {
             try
             {
-                List<string> list = freeSql.Select<DbGroupInfos>().Distinct().ToList(a => a.Name);
-                groupCombox.Items.Clear();
-                AutoCompleteStringCollection lstsourece = new AutoCompleteStringCollection();
-                foreach (var item in list)
+                List<DbPersonInfos> list =  freeSql.Select<DbPersonInfos>().Where(a=>a.CreateTime== createTime&&a.SchoolName==school).ToList();
+                if(list.Count>0)
                 {
-                    groupCombox.Items.Add(item);
-                    lstsourece.Add(item);
+                    groupCombox.Items.Clear();
+                    foreach(var sl in list)
+                    {
+                        if (groupCombox.Items.Contains(sl.GroupName)) continue;
+                        else
+                            groupCombox.Items.Add(sl.GroupName);
+                    }
                 }
-                groupCombox.AutoCompleteCustomSource = lstsourece;
             }
             catch (Exception ex)
             {
@@ -718,21 +723,7 @@ namespace WeightCore.GameSystem.GameWindowSys
                 groupCombox.AutoCompleteCustomSource = null;
             }
 
-            try
-            {
-                if (!string.IsNullOrEmpty(groupname))
-                {
-                    int index = groupCombox.Items.IndexOf(groupname);
-                    if (index >= 0)
-                    {
-                        groupCombox.SelectedIndex = index;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LoggerHelper.Debug(ex);
-            }
+            
         }
 
         
@@ -883,6 +874,9 @@ namespace WeightCore.GameSystem.GameWindowSys
             }
         }
 
-        
+        public void RefreshGetGroup(ComboBox groupCombox, string createTime, string school)
+        {
+           UpDataGroupData(groupCombox, createTime, school);
+        }
     }
 }

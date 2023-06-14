@@ -25,6 +25,17 @@ namespace WeightCore.GameSystem.GameWindow
             InitializeComponent();
         }
         private SportProjectInfos sportProjectInfos { get; set; }
+        public string CreateTime { get; internal set; }
+        public string School { get; internal set; }
+        /// <summary>
+        ///  是否已经写入
+        /// </summary>
+        private bool IsWrite=false;
+        /// <summary>
+        /// 是否已经开始测试
+        /// </summary>
+        private bool IsStart= false;
+
         private string _groupName = string.Empty;
         private Dictionary<string, string> localInfo = new Dictionary<string, string>();
         private List<UserControl1> _userControl1s = new List<UserControl1>();
@@ -68,7 +79,7 @@ namespace WeightCore.GameSystem.GameWindow
                 }
                 USBWatcher.AddUSBEventWatcher(USBEventHandler, USBEventHandler, new TimeSpan(0, 0, 1));
                 RunningTestingWindowSys .Instance. InitListViewHead(sportProjectInfos.RoundCount,listView1);
-                RunningTestingWindowSys.Instance.UpDataGroupData( GroupCombox,_groupName);
+                RunningTestingWindowSys.Instance.UpDataGroupData( GroupCombox,School,CreateTime);
                 loadLocalData();
             }
         }
@@ -250,6 +261,7 @@ namespace WeightCore.GameSystem.GameWindow
                     Console.WriteLine();
                     try
                     {
+                        IsWrite = true;
                         double sg_result = data.mms.sg_result;
                         double tz_result = data.mms.tz_result;
                         double bmi_result = data.mms.bmi_result;
@@ -581,7 +593,7 @@ namespace WeightCore.GameSystem.GameWindow
         /// <param name="e"></param>
         private void uiButton4_Click(object sender, EventArgs e)
         {
-            RunningTestingWindowSys.Instance.RefreshGetGroup(GroupCombox);
+            RunningTestingWindowSys.Instance.RefreshGetGroup(GroupCombox,CreateTime,School);
         }
         private void GroupCombox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -620,6 +632,7 @@ namespace WeightCore.GameSystem.GameWindow
         /// <param name="e"></param>
         private void uiButton7_Click(object sender, EventArgs e)
         {
+            IsStart = true;
             List<string> list = CheckPortISConnected();
             if (list.Count > 0)
             {
@@ -631,22 +644,31 @@ namespace WeightCore.GameSystem.GameWindow
                 MessageBox.Show(sb.ToString());
                 return;
             }
-            MachineMsgCode mmc = new MachineMsgCode();
-            mmc.type = 2;
-            int step = 0;
-            foreach (var sr in SerialReaders)
+            if (!IsWrite)
             {
-                if (string.IsNullOrEmpty(_userControl1s[step].p_IdNumber)
-                   || _userControl1s[step].p_IdNumber == "未分配") continue;
-                if (sr != null && sr.IsComOpen())
+                MachineMsgCode mmc = new MachineMsgCode();
+                mmc.type = 2;
+                int step = 0;
+                foreach (var sr in SerialReaders)
                 {
-                    sr.SendMessage(mmc);
+                    if (string.IsNullOrEmpty(_userControl1s[step].p_IdNumber)
+                       || _userControl1s[step].p_IdNumber == "未分配") continue;
+                    if (sr != null && sr.IsComOpen())
+                    {
+                        sr.SendMessage(mmc);
+                    }
+                    step++;
                 }
-                step++;
+            }
+            else
+            {
+                UIMessageBox.ShowWarning("请先写入上一次的测试结果！！");
+                return;
             }
         }
         private void uiButton8_Click(object sender, EventArgs e)
         {
+            IsWrite = false;
             RunningTestingWindowSys.Instance. WriteScoreIntoDb(listView1,sportProjectInfos,GroupCombox,_userControl1s);
             if(uiCheckBox1.Checked)
             {
