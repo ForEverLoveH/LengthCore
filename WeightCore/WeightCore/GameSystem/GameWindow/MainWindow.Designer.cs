@@ -125,6 +125,7 @@
             // 
             // ucNavigationMenu1
             // 
+            this.ucNavigationMenu1.AutoSize = true;
             this.ucNavigationMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.ucNavigationMenu1.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ucNavigationMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -243,8 +244,7 @@
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1227, 692);
             this.Controls.Add(this.uiTitlePanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -252,6 +252,7 @@
             this.Text = "主页面";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.uiTitlePanel1.ResumeLayout(false);
+            this.uiTitlePanel1.PerformLayout();
             this.uiTitlePanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
