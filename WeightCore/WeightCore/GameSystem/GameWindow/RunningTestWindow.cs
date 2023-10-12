@@ -12,10 +12,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HZH_Controls;
 using Sunny.UI;
+using WeightCore.GameSystem.AutoSize;
 using WeightCore.GameSystem.GameHelper;
 using WeightCore.GameSystem.GameWindowSys;
 using WeightCore.GameSystem.MyControl;
 using WeightCoreModel.GameModel;
+
 namespace WeightCore.GameSystem.GameWindow
 {
     public partial class RunningTestWindow : Form
@@ -23,18 +25,23 @@ namespace WeightCore.GameSystem.GameWindow
         public RunningTestWindow()
         {
             InitializeComponent();
+            AutoWindowSys = new AutoWindowSys(this.Width, this.Height);
+            AutoWindowSys.SetTag(this);
         }
+
         private SportProjectInfos sportProjectInfos { get; set; }
         public string CreateTime { get; internal set; }
         public string School { get; internal set; }
+
         /// <summary>
         ///  是否已经写入
         /// </summary>
-        private bool IsWrite=false;
+        private bool IsWrite = false;
+
         /// <summary>
         /// 是否已经开始测试
         /// </summary>
-        private bool IsStart= false;
+        private bool IsStart = false;
 
         private string _groupName = string.Empty;
         private Dictionary<string, string> localInfo = new Dictionary<string, string>();
@@ -49,6 +56,7 @@ namespace WeightCore.GameSystem.GameWindow
         private string AutoMatchLog = Application.StartupPath + "\\Data\\AutoMatchLog.log";
         private string AutoUploadLog = Application.StartupPath + "\\Data\\AutoUploadLog.log";
         private string AutoPrintLog = Application.StartupPath + "\\Data\\AutoPrintLog.log";
+        private AutoWindowSys AutoWindowSys = null;
 
         private void RunningTestWindow_Load(object sender, EventArgs e)
         {
@@ -78,8 +86,8 @@ namespace WeightCore.GameSystem.GameWindow
                     localInfo.Add(itsm.key, itsm.value);
                 }
                 USBWatcher.AddUSBEventWatcher(USBEventHandler, USBEventHandler, new TimeSpan(0, 0, 1));
-                RunningTestingWindowSys .Instance. InitListViewHead(sportProjectInfos.RoundCount,listView1);
-                RunningTestingWindowSys.Instance.UpDataGroupData( GroupCombox,School,CreateTime);
+                RunningTestingWindowSys.Instance.InitListViewHead(sportProjectInfos.RoundCount, listView1);
+                RunningTestingWindowSys.Instance.UpDataGroupData(GroupCombox, School, CreateTime);
                 loadLocalData();
             }
         }
@@ -203,7 +211,6 @@ namespace WeightCore.GameSystem.GameWindow
                         {
                             p_title = $"第{i + 1}号设备",
                             p_roundCbx_items = lis,
-
                         };
                         _userControl1s.Add(us);
                         flowLayoutPanel1.Controls.Add(us);
@@ -251,11 +258,13 @@ namespace WeightCore.GameSystem.GameWindow
                     }
 
                     break;
+
                 case 2:
                     //设备开始测试返回命令
                     if (data.mms.code == 1)
                         Console.WriteLine("测试开始成功");
                     break;
+
                 case 3:
                     //获取成绩
                     Console.WriteLine();
@@ -284,14 +293,14 @@ namespace WeightCore.GameSystem.GameWindow
                     {
                         LoggerHelper.Debug(ex);
                     }
-                     
 
                     break;
+
                 case 4:
                     //查询设备信息
                     break;
-                default: break;
 
+                default: break;
             }
         }
 
@@ -312,7 +321,6 @@ namespace WeightCore.GameSystem.GameWindow
                 it.p_toolState = "设备未连接";
                 it.p_toolState_color = Color.Red;
                 it.p_title_Color = System.Drawing.SystemColors.ControlLight;
-
             }
 
             GC.Collect();
@@ -387,6 +395,7 @@ namespace WeightCore.GameSystem.GameWindow
                 }
             }
         }
+
         /// <summary>
         /// 检查串口是否连接
         /// </summary>
@@ -426,7 +435,7 @@ namespace WeightCore.GameSystem.GameWindow
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="flag"></param>
         private void MatchBtnSwitch(bool flag)
@@ -446,7 +455,7 @@ namespace WeightCore.GameSystem.GameWindow
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="portName"></param>
         /// <returns></returns>
@@ -476,6 +485,7 @@ namespace WeightCore.GameSystem.GameWindow
             }
             return strs.ToArray();
         }
+
         /// <summary>
         /// 导入最近匹配
         /// </summary>
@@ -529,7 +539,9 @@ namespace WeightCore.GameSystem.GameWindow
                 return;
             }
         }
+
         #region 页面事件
+
         /// <summary>
         /// 参数设置按钮
         /// </summary>
@@ -563,6 +575,7 @@ namespace WeightCore.GameSystem.GameWindow
             //导入最近匹配
             ImportRecentMatch();
         }
+
         /// <summary>
         /// 匹配设备
         /// </summary>
@@ -585,7 +598,7 @@ namespace WeightCore.GameSystem.GameWindow
             //匹配设备
             MatchBtnSwitch(isMatchingDevice);
         }
-        
+
         /// <summary>
         /// 刷新按钮
         /// </summary>
@@ -593,12 +606,14 @@ namespace WeightCore.GameSystem.GameWindow
         /// <param name="e"></param>
         private void uiButton4_Click(object sender, EventArgs e)
         {
-            RunningTestingWindowSys.Instance.RefreshGetGroup(GroupCombox,CreateTime,School);
+            RunningTestingWindowSys.Instance.RefreshGetGroup(GroupCombox, CreateTime, School);
         }
+
         private void GroupCombox_SelectedIndexChanged(object sender, EventArgs e)
         {
             RunningTestingWindowSys.Instance.UpDateListView(listView1, GroupCombox);
         }
+
         private void RoundCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (RoundCbx.SelectedIndex >= 0)
@@ -606,16 +621,18 @@ namespace WeightCore.GameSystem.GameWindow
                 _nowRound = RoundCbx.SelectedIndex;
             }
         }
+
         /// <summary>
         /// 自动匹配
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         private void uiButton5_Click(object sender, EventArgs e)
         {
             AutoMatchStudent();
         }
+
         /// <summary>
         /// 选择匹配
         /// </summary>
@@ -625,8 +642,9 @@ namespace WeightCore.GameSystem.GameWindow
         {
             ChooseMatchStudent();
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -666,26 +684,29 @@ namespace WeightCore.GameSystem.GameWindow
                 return;
             }
         }
+
         private void uiButton8_Click(object sender, EventArgs e)
         {
             IsWrite = false;
-            RunningTestingWindowSys.Instance. WriteScoreIntoDb(listView1,sportProjectInfos,GroupCombox,_userControl1s);
-            if(uiCheckBox1.Checked)
+            RunningTestingWindowSys.Instance.WriteScoreIntoDb(listView1, sportProjectInfos, GroupCombox, _userControl1s);
+            if (uiCheckBox1.Checked)
             {
                 AutoMatchStudent();
             }
         }
+
         /// <summary>
         /// 上传本组
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>   
+        /// <param name="e"></param>
         private void uiButton9_Click(object sender, EventArgs e)
         {
             UpLoadCurrentGroupScore();
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -694,9 +715,10 @@ namespace WeightCore.GameSystem.GameWindow
             string groupName = GroupCombox.Text;
             new Thread((ThreadStart)delegate
             {
-              RunningTestingWindowSys.Instance  .PrintScore(groupName,sportProjectInfos);
+                RunningTestingWindowSys.Instance.PrintScore(groupName, sportProjectInfos);
             }).Start();
         }
+
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             ListView lv1 = (ListView)sender;
@@ -706,10 +728,12 @@ namespace WeightCore.GameSystem.GameWindow
                 this.cmsListViewItem.Show(lv1, e.X, e.Y);
             }
         }
+
         private void 缺考ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RunningTestingWindowSys.Instance.SetGradeError(listView1,"缺考",_nowRound,GroupCombox);
+            RunningTestingWindowSys.Instance.SetGradeError(listView1, "缺考", _nowRound, GroupCombox);
         }
+
         private void 中退ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RunningTestingWindowSys.Instance.SetGradeError(listView1, "中退", _nowRound, GroupCombox);
@@ -754,7 +778,8 @@ namespace WeightCore.GameSystem.GameWindow
             }
         }
 
-        #endregion
+        #endregion 页面事件
+
         /// <summary>
         /// 自动匹配
         /// </summary>
@@ -763,7 +788,7 @@ namespace WeightCore.GameSystem.GameWindow
             try
             {
                 ClearMatchStudent();
-                List<DbPersonInfos> dbPersonInfos = RunningTestingWindowSys.Instance.UpDateListView(listView1,GroupCombox);
+                List<DbPersonInfos> dbPersonInfos = RunningTestingWindowSys.Instance.UpDateListView(listView1, GroupCombox);
                 int nlen = SerialReaders.Count;
                 int step = 0;
                 int i = 0;
@@ -789,7 +814,7 @@ namespace WeightCore.GameSystem.GameWindow
                         && GroupCombox.SelectedIndex < GroupCombox.Items.Count - 2)
                     {
                         GroupCombox.SelectedIndex++;
-                       RoundCbx.SelectedIndex = 0;
+                        RoundCbx.SelectedIndex = 0;
                         AutoMatchStudent();
                     }
                 }
@@ -799,23 +824,24 @@ namespace WeightCore.GameSystem.GameWindow
                 LoggerHelper.Debug(ex);
             }
         }
-         /// <summary>
-         /// 选择匹配
-         /// </summary>
+
+        /// <summary>
+        /// 选择匹配
+        /// </summary>
         private void ChooseMatchStudent()
         {
             ClearMatchStudent();
             if (listView1.SelectedItems.Count == 0) return;
             int step = 0;
             List<DbPersonInfos> dbPersonInfos = RunningTestingWindowSys.Instance.GetDBPersonInfo(GroupCombox);
-             
+
             foreach (ListViewItem item in listView1.SelectedItems)
             {
                 try
                 {
                     string idNumber = item.SubItems[3].Text;
                     List<ResultInfos> resultInfos = RunningTestingWindowSys.Instance.GetResultInfo(idNumber);
-                    
+
                     if (resultInfos.Count != 0) continue;
                     DbPersonInfos dbPersonInfos1 = dbPersonInfos.Find(a => a.IdNumber == idNumber);
                     _userControl1s[step].p_IdNumber = idNumber;
@@ -834,6 +860,7 @@ namespace WeightCore.GameSystem.GameWindow
                 }
             }
         }
+
         /// <summary>
         /// 清除当前匹配
         /// </summary>
@@ -849,10 +876,11 @@ namespace WeightCore.GameSystem.GameWindow
                 _userControl1s[i].p_stateCbx_selectIndex = 0;
             }
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        
+
         private void UpLoadCurrentGroupScore()
         {
             ControlHelper.ThreadInvokerControl(this, () =>
@@ -881,7 +909,6 @@ namespace WeightCore.GameSystem.GameWindow
                     uiButton9.Text = "上传本组";
                     uiButton9.ForeColor = Color.Black;
                     UIMessageBox.ShowSuccess("上传成功！！");
-               
                 });
             }
         }
@@ -895,6 +922,11 @@ namespace WeightCore.GameSystem.GameWindow
                     reader.CloseCom();
                 }
             }
+        }
+
+        private void RunningTestWindow_Resize(object sender, EventArgs e)
+        {
+            AutoWindowSys.ReWinformLayout(this);
         }
     }
 }

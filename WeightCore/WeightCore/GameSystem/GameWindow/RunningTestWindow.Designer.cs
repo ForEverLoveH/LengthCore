@@ -547,6 +547,7 @@
             this.Text = "测试页面";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RunningTestWindow_FormClosed);
             this.Load += new System.EventHandler(this.RunningTestWindow_Load);
+            this.Resize += new System.EventHandler(this.RunningTestWindow_Resize);
             this.uiTitlePanel1.ResumeLayout(false);
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
